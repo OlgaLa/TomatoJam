@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="Login test suite">
+    <test name="Login test suit">
+        <classes>
+            <class name=""/>
+        </classes>
+    </test>
+</suite>
