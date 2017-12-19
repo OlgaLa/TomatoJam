@@ -1,4 +1,4 @@
-import helpers.TestAdapter;
+import base.TestAdapter;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -21,12 +21,16 @@ public class UserIsInSelectionTest extends TestAdapter<EngagementsPage> {
     @Test
     public void userIsInSelectionTest() throws InterruptedException {
 
-        pageUnderTest.createNewEngagement(RandomStringUtils.randomAlphabetic(6), RandomStringUtils.randomAlphabetic(6));
-        // add check that the engag is created.
-        //Thread.sleep(5000);
-        pageUnderTest.getProfilesSubMenu().clickSelections();
-               // .createNewSelection(RandomStringUtils.randomAlphabetic(6), RandomStringUtils.randomAlphabetic(6));
-        Thread.sleep(5000);
+        String engType = RandomStringUtils.randomAlphabetic(6);
+        String engDescription = RandomStringUtils.randomAlphabetic(6);
+        String selectionName = RandomStringUtils.randomAlphabetic(7);
+        String selectionDescription = RandomStringUtils.randomAlphabetic(7);
+
+        pageUnderTest.createNewEngagement(engType, engDescription);
+        pageUnderTest.getProfilesSubMenu()
+                .clickSelections()
+                .createNewSelection(selectionName, selectionDescription, engType);
+        Thread.sleep(20000);
         System.out.print("aaaaaaaaaaa");
     }
 }
