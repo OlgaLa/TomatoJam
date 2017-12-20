@@ -1,7 +1,7 @@
 # TomatoJam
 
 # Before running tests:
-1. Make sure that browser drivers are set in the system properties 
+Make sure that browser drivers are set in the system properties 
 * Download *chrome* or *firefox* driver
 * Unzip it in any folder 
 * For Windows: 
@@ -9,8 +9,6 @@
   * Select *Advance tab*, clicks *Environment Variables*
   * In System variables, find PATH, clicks edit and append path to the folder with drivers to the end.
   * Click OK
-2. (Optional) Install *allure comandline* to generate reports. You can find info how to do this here: https://docs.qameta.io/allure/latest/#_installing_a_commandline
-
 
 # How to run the tests in the terminal: 
 1. Go to the project folder
