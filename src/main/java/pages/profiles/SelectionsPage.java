@@ -27,7 +27,7 @@ public class SelectionsPage extends InternalPage {
     private static final By ENGAGEMENTS = get("SelectionsPage.Engagements");
     private static final By DRAG_AND_DROP_AREA = get("SelectionPage.DragAndDropArea");
     private static final By CONFIRM_BUTTON = get("SelectionPage.ConfirmButton");
-    private static final By SELECTION_INFO_BOX = get("SelectionPage.SelectionInfoBox");
+    private static final By API_IDENTIFIER = get("SelectionPage.ApiIdentifier");
 
     public SelectionsPage(WebDriver driver) {
         super(driver);
@@ -57,31 +57,33 @@ public class SelectionsPage extends InternalPage {
     }
 
     private void waitSelectionNameIsVisible() {
-        actionBot.waitFor(SELECTION_INFO_BOX);
+        actionBot.waitFor(API_IDENTIFIER);
     }
 
-    public void createNewSelection(String name, String description, String engagementType) throws InterruptedException {
+    private String getSelectionApiIdentifier() {  return actionBot.getText(API_IDENTIFIER); }
+
+    public String createNewSelection(String name, String description, String engagementType) throws InterruptedException {
         clickNewSelectionButton();
         enterSelectionName(name);
         enterSelectionDescription(description);
-        Thread.sleep(2000);
-        dradAndDropEngagement(engagementType);
-//        clickNextButton();
-//        clickNextButton();
-//        clickConfirmButton();
-//        waitSelectionNameIsVisible();
+        Thread.sleep(5000);
+        dragAndDropEngagement(engagementType);
+        clickNextButton();
+        clickNextButton();
+        clickConfirmButton();
+        waitSelectionNameIsVisible();
         LOG.info("\nSelection name " + name + " and description " + description + "\n");
+        return getSelectionApiIdentifier();
     }
 
-    public void dradAndDropEngagement(String engagementType) {
+    public void dragAndDropEngagement(String engagementType) {
         List<WebElement> engagements = driver.findElements(ENGAGEMENTS);
 
         System.out.println(engagements.size());
         for (WebElement engagement: engagements) {
             if(engagement.getText().contains(engagementType)){
-                System.out.println("QQQQQ " + engagement.getText());
+                LOG.info("Expected engagement: " + engagement.getText());
                 actionBot.dragAndDrop(engagement, DRAG_AND_DROP_AREA);
-                LOG.info("\nFind engagement type " + engagementType + "\n");
                 break;
             }
             else {

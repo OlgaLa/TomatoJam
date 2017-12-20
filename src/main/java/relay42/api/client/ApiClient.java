@@ -66,10 +66,10 @@ public class ApiClient {
         return null;
     }
 
-    public List<Segment> jsonArrayToObjectList(String json) throws IOException {
+    public List<Segment> jsonArrayToObjectList(String response) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         CollectionType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Segment.class);
-        List<Segment> ts = mapper.readValue(json, listType);
+        List<Segment> ts = mapper.readValue(response, listType);
         return ts;
     }
 }

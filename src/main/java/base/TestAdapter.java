@@ -1,7 +1,6 @@
 package base;
 
-import base.InternalPage;
-import base.TestBase;
+import constant.Credentials;
 import org.testng.annotations.BeforeMethod;
 import pages.test_managment.DashboardPage;
 
@@ -10,13 +9,10 @@ import pages.test_managment.DashboardPage;
  */
 public abstract class TestAdapter <TPage extends InternalPage> extends TestBase {
 
-        private static final String EMAIL_ADDRESS ="relay42test1@gmail.com";
-        private static final String PASSWORD = "relay42test";
-
         protected TPage pageUnderTest;
 
         private DashboardPage givenImLoggedIn() throws InterruptedException {
-            return loginPage.login(EMAIL_ADDRESS, PASSWORD);
+            return loginPage.login(Credentials.EMAIL, Credentials.PASSWORD);
         }
 
         @BeforeMethod

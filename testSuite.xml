@@ -2,7 +2,7 @@
 <suite name="Login test suite">
     <test name="Login test suit">
         <classes>
-            <class name=""/>
+            <class name="UserIsInSelectionTest"/>
         </classes>
     </test>
 </suite>
