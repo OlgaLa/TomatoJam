@@ -1,4 +1,4 @@
-package constant;
+package constants;
 
 /**
  * Created by Olga Lapanovich on 20.12.2017.

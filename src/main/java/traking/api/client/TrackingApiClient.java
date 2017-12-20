@@ -14,7 +14,7 @@ import java.util.UUID;
 public class TrackingApiClient {
     private String baseUri;
 
-    public TrackingApiClient(String baseUri){
+    public TrackingApiClient(String baseUri) {
 
         this.baseUri = baseUri;
     }

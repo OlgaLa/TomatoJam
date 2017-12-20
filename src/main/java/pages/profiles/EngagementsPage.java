@@ -12,7 +12,7 @@ import static helpers.Locators.get;
 /**
  * Created by Olga Lapanovich on 18.12.2017.
  */
-public class EngagementsPage extends InternalPage{
+public class EngagementsPage extends InternalPage {
 
     private static final Log LOG = LogFactory.getLog(EngagementsPage.class);
     private ProfilesSubMenu profilesSubMenu;
@@ -27,7 +27,9 @@ public class EngagementsPage extends InternalPage{
         profilesSubMenu = new ProfilesSubMenu(driver);
     }
 
-    public ProfilesSubMenu getProfilesSubMenu() { return profilesSubMenu; }
+    public ProfilesSubMenu getProfilesSubMenu() {
+        return profilesSubMenu;
+    }
 
     private void clickNewEngagementButton() {
         actionBot.click(NEW_ENGAGEMENT_BUTTON);

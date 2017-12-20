@@ -28,7 +28,9 @@ public class ActionBot {
         driver.findElement(locator).click();
     }
 
-    public String getText(By locator) { return driver.findElement(locator).getText(); }
+    public String getText(By locator) {
+        return driver.findElement(locator).getText();
+    }
 
     public void sendKeys(By locator, String text) {
         WebElement element = driver.findElement(locator);

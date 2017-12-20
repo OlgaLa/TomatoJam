@@ -1,6 +1,6 @@
 import base.TestAdapter;
-import constant.ApiUrls;
-import constant.Credentials;
+import constants.ApiUrls;
+import constants.Credentials;
 import helpers.TestUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.logging.Log;
@@ -33,7 +33,7 @@ public class UserIsInSelectionTest extends TestAdapter<EngagementsPage> {
     }
 
     private Segment findSegmentByApiIdentifier(List<Segment> segments, String apiIdentifier) {
-        for (Segment segment: segments) {
+        for (Segment segment : segments) {
             if (segment.segmentName.contains(apiIdentifier)) {
                 return segment;
             }

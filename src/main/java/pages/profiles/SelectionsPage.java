@@ -34,7 +34,9 @@ public class SelectionsPage extends InternalPage {
         profilesSubMenu = new ProfilesSubMenu(driver);
     }
 
-    public ProfilesSubMenu getProfilesSubMenu() { return profilesSubMenu; }
+    public ProfilesSubMenu getProfilesSubMenu() {
+        return profilesSubMenu;
+    }
 
     private void clickNewSelectionButton() {
         actionBot.click(NEW_SELECTION_BUTTON);
@@ -60,7 +62,9 @@ public class SelectionsPage extends InternalPage {
         actionBot.waitFor(API_IDENTIFIER);
     }
 
-    private String getSelectionApiIdentifier() {  return actionBot.getText(API_IDENTIFIER); }
+    private String getSelectionApiIdentifier() {
+        return actionBot.getText(API_IDENTIFIER);
+    }
 
     public String createNewSelection(String name, String description, String engagementType) throws InterruptedException {
         clickNewSelectionButton();
@@ -80,13 +84,12 @@ public class SelectionsPage extends InternalPage {
         List<WebElement> engagements = driver.findElements(ENGAGEMENTS);
 
         System.out.println(engagements.size());
-        for (WebElement engagement: engagements) {
-            if(engagement.getText().contains(engagementType)){
+        for (WebElement engagement : engagements) {
+            if (engagement.getText().contains(engagementType)) {
                 LOG.info("Expected engagement: " + engagement.getText());
                 actionBot.dragAndDrop(engagement, DRAG_AND_DROP_AREA);
                 break;
-            }
-            else {
+            } else {
                 LOG.info("Selection: " + engagement.getText());
             }
         }

@@ -1,10 +1,10 @@
 package base;
 
+import constants.ApiUrls;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import pages.LoginPage;
 
@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class TestBase {
 
-    private static final String URL = "https://admin.relay42.com/";
     protected WebDriver driver;
     protected LoginPage loginPage;
 
@@ -34,19 +33,13 @@ public class TestBase {
                 break;
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(URL);
+        driver.get(ApiUrls.APP_URL);
         loginPage = new LoginPage(driver);
     }
 
     @AfterClass
     public void tearDown() {
         driver.quit();
-    }
-
-    @AfterMethod
-    public void cleanUp() {
-        driver.get(URL);
-        loginPage = new LoginPage(driver);
     }
 
 }

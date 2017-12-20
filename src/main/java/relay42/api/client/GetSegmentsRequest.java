@@ -12,7 +12,7 @@ public class GetSegmentsRequest {
     private final Long partnerType;
     private final String partnerId;
 
-    public GetSegmentsRequest(Long siteNumber, Long partnerType, String partnerId){
+    public GetSegmentsRequest(Long siteNumber, Long partnerType, String partnerId) {
         this.siteNumber = siteNumber;
         this.partnerType = partnerType;
         this.partnerId = partnerId;
