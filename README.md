@@ -12,6 +12,7 @@ Make sure that browser drivers are set in the system properties
 
 # How to run the tests in the terminal: 
 1. Go to the project folder
-2. `mvn clean test -Dsurefire.suiteXmlFiles=testsSuite.xml` to run the test
+2. `mvn clean test` to run the test
+
 Additional parameters: 
 * run tests in a specific browser(chrome is default): `-Dbrowser=chrome firefox`
